@@ -1,38 +1,197 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+*, 
+*::before, 
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.big-container {
+  position: relative;
+  padding: 1.7rem 0 2rem;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: url('./images/design-space-paper-textured-background.jpg');
+
+}
+
+/* --------------------NavBar ----------*/
+
+
+.nav-container {
+  background-color: #FA6E59;
+  max-width: 81rem;
+  width: 100%;
+}
+
+.Nav {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem calc((100vw - 1000px) /2);
+  z-index: 10;
+}
+
+.Nav-Link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+  cursor: pointer;
+  color: black;
+  list-style-type: none;
+}
+
+.Nav-Link a {
+  transition: 0.3s;
+}
+
+.Nav-Link:hover {
+  color: var(--hoverColor);
+  transform: scale(1.05);
+}
+
+.Nav-Link h1 {
+  color: black;
+}
+
+.NavMenu {
+  display: flex;
+  align-items: center;
+  margin-right: -24px;
+}
+
+/* -------------------------------------------------landing page-------------------------------------------------- */
+
+.btn {
+  display: inline-block;
+  padding: 0.9rem 1.9rem;
+  color: white;
+  background-color: black;
+  border-radius: 16px;
+  text-transform: capitalize;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
+
+.landing-area-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: center;
+}
+
+.big-title {
+  font-size: 1.4rem;
+  color: black;
+  text-transform: capitalize;
+  line-height: 1.4;
+}
+
+.text {
+  color: black;
+  font-size: 1.1rem;
+  margin: 1.9rem 0 2.5rem;
+  max-width: 600px;
+  line-height: 2.3;
+}
+
+.landing-area-container .btn {
+  box-shadow: 0 0 40px 2px rgba(0, 0, 0, 0.05);
+}
+
+.woman {
+  width: 160%;
+  transform: translate(10%, 25px);
+  position: relative;
+  z-index: 20;
+}
+.shape {
+  position: absolute;
+  z-index: 0;
+  width: 650px;
+  bottom: 55px;
+  left: 40px;
+}
+
+/* --------------footer----------- */
+.footer-container {
+  background-color: #E6DF44;
+  max-width: 81rem;
+  width: 100%;
+  display: flex;
+  padding: 1.5rem;
+  height: 100%;
+  cursor: pointer;
+}
+.footer-container h1 {
+  color: black;
+}
+
+/* ----------------------------------products------------------------------ */
+.products-container {
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
+}
+
+.products-container .product-card {
+  background-color: #D0E1F9;
+  border-radius: 10px;
+  padding: 1em;
+  box-shadow: 0px 10px 5px #b2bec3;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.product-card .name {
+  font-size: 18px;
+  font-weight: bold;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.product-card .img {
+  object-fit: cover;
+  max-width: 100%;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.product-card .btn {
+  display: inline-block;
+  padding: .1rem .5rem;
   color: white;
+  background-color: black;
+  border-radius: 16px;
+  text-transform: capitalize;
+  transition: 0.3s;
+  text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
+
+/* -------------------------------------Product Card--------------------------- */
+.product-card .desc {
+  text-align: center;
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.product-card .cat {
+  font-weight: bold;
+}
+
+.product-card .price {
+  font-weight: bold;
 }

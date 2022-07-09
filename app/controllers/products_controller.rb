@@ -2,12 +2,12 @@ class ProductsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :error_not_found
     rescue_from ActiveRecord::RecordInvalid, with: :error_unproc_entity
 
-    # GET /products
+    # GET "/products"
     def index 
         render json: Product.all, status: :ok
     end
 
-# GET /products/:id
+    # GET "/products/:id"
     def show 
         product = Product.find(params[:id])
         render json: product, status: :ok
