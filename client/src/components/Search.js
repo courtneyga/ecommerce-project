@@ -1,13 +1,20 @@
-import React from 'react';
-import NavBar from './NavBar';
+import React from "react";
 
-const Search = () => {
+function Search({ searchTerm, onSearchChange }) {
+  
+
   return (
-    <div>
-        <NavBar />
-            This is the Search page
+    <div className='search-container'>
+      <input
+        type="text"
+        id='search'
+        placeholder='search products'
+        value={searchTerm}
+        onChange={(e) => onSearchChange(e.target.value)}
+      />
+      <button type='submit'>🔍</button>  
     </div>
-  )
+  );
 }
 
-export default Search
+export default Search;

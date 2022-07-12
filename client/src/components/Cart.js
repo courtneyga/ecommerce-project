@@ -1,13 +1,19 @@
 import React from 'react';
 import NavBar from './NavBar';
 
-const Cart = () => {
-  return (
-    <div>
-      <NavBar />
-          This is the Cart page
-    </div>
-  )
-}
+
+function Cart () {
+    
+    return (
+      <>
+        <NavBar />
+        CART
+      </>
+      ); 
+    }
+
+
+    
+
 
 export default Cart

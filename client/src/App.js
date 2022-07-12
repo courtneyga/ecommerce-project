@@ -1,4 +1,4 @@
-import { useState, useEffect} from 'react';
+import React from 'react';
 import { 
   BrowserRouter as Router, 
   Switch, 
@@ -6,30 +6,35 @@ import {
  } from 'react-router-dom';
 
 import Landing from './components/Landing';
-import Products from './components/Products';
-import Categories from './components/Categories';
+import Shop from './components/Shop';
+// import Categories from './components/Categories';
 import Login from './components/Login';
-import Search from './components/Search';
 import Cart from './components/Cart';
+import ProductCardDetail from './components/ProductCardDetail'
 
 
 function App () {
-  const [user, setUser] = useState();
+  // const [search, setSearch] = useState("");
+  // const [user, setUser] = useState([]);
 
-  useEffect(() => {
-    fetch("/me", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((r) => r.json())
-      .then((data) => {
-        if (data.id) {
-          setUser(data);
-        }
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("/me", {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then((r) => r.json())
+  //     .then((data) => {
+  //       if (data.id) {
+  //         setUser(data);
+  //       }
+  //     });
+  // }, []);
+
+  // const displayProducts = products.filter((product) => 
+  //   product.name.toLowerCase().includes(search.toLowerCase())
+  // );
 
   return ( 
     <>
@@ -39,21 +44,21 @@ function App () {
               <Route path="/landing">
                 <Landing />
               </Route>
-              <Route path="/products">
-                <Products />
+              <Route path="/shop">
+                <Shop />
               </Route> 
-              <Route path="/categories">
+              {/* <Route path="/categories:type">
                 <Categories  />
-              </Route> 
+              </Route>  */}
               <Route path="/login">
-                <Login user={user} />
-              </Route> 
-              <Route path="/search">
-                <Search />
+                <Login />
               </Route> 
               <Route path="/cart">
-                <Cart user={user} />
-              </Route>  
+                <Cart />
+              </Route>
+              <Route path="/product">
+                <ProductCardDetail />
+              </Route>   
             </Switch>
           </Router>
       </div>
