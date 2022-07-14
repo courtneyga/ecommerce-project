@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_many :purchases
     has_many :products, through: :purchases
-    # has_secure_password
+    has_secure_password
 
     # validates :username,
     #         presence: true,

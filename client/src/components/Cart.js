@@ -1,19 +1,18 @@
-import React from 'react';
-import NavBar from './NavBar';
-
+import CartDisplayPage from './CartDisplayPage'
+import NavBar from './NavBar'
 
 function Cart () {
-    
-    return (
-      <>
-        <NavBar />
-        CART
-      </>
-      ); 
-    }
 
 
-    
-
+  return (
+    <>
+      <NavBar />
+      <div className=''>
+          <CartDisplayPage />
+      </div>
+    </>
+   
+  )
+}
 
 export default Cart
