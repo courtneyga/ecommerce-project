@@ -1,13 +1,62 @@
 import React from 'react'
-import NavBar from './NavBar';
 
 
-const Login = () => {
+function Login ({handleSubmit, setUserName, setPassword, }) {
+
+
   return (
-    <div>
-      <NavBar />
-        This is the Login page
+    <div className='login-signup-container'>
+      <h1>Welcome!</h1>
+      <div className='login-container'>
+        <form onSubmit={handleSubmit}>
+          <h2>Login:
+          </h2>
+          <label htmlFor="username">Username: </label>
+          <input
+            id='username'
+            type='text'
+            name='username'
+            className='user-container'
+            onChange={(e) => setUserName(e.target.value)}
+          />
+          <div>
+            <label htmlFor="password">Password: </label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                className='pw-container'
+                onChange={(e) => setPassword(e.target.value)}
+              />
+          </div>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+      <div className='signup-container'>
+        <form>
+          <h2>Sign-up:</h2>
+          <label htmlFor="username">Username: </label>
+          <input
+            id='username'
+            type='text'
+            name='username'
+            className='user-container'
+          />
+          <div>
+            <label htmlFor="password">Password: </label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                className='pw-container'
+                onChange={(e) => setPassword(e.target.value)}
+              />
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
+    
   )
 }
 

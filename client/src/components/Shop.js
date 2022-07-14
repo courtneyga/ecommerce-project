@@ -1,6 +1,5 @@
 // import React from 'react';
 import ProductCard from './ProductCard';
-import NavBar from './NavBar';
 // import Categories from './Categories';
 // import ProductContainer from './ProductContainer';
 // import Search from './Search';
@@ -46,21 +45,29 @@ function Shop ({addCartItem ,products, setProducts, search, setSearch, setCatego
   
   return (
   <>
-    <NavBar />
-      <div className='shop-search-cat'>
+    <div className='shop-search-cat'>
          <select className="cat-container" onChange={(e)=>setCategory(e.target.value)}>
-            <option value="all">Select a Category...</option>
+            <option value="all">Categories</option>
             <option value="all">All</option>
             <option value="Music">Music</option>
             <option value="Fun + Games">Fun + Games</option>
             <option value="Reading">Reading</option>
             <option value="Tech">Tech</option>
         </select>
-        <input type="text" placeholder="Search..." className="appearance-none ml-2 block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-amber-500 focus:border-amber-500 focus:z-10 sm:text-sm" value={search} onChange={(e)=>setSearch(e.target.value)} ></input>
+        <div className='search-wrap'>
+          <input 
+            type="text" 
+            placeholder="Search..." 
+            className='search-box' 
+            value={search} 
+            onChange={(e)=>setSearch(e.target.value)} >
+          </input>
+        </div>
+        
       </div>
       <div className='shop-container'>
         {productsDisplay}
-      </div>
+    </div>
   </>
       
   

@@ -1,12 +1,11 @@
 import React from 'react';
-import LandingCat from './LandingCat';
+// import LandingCat from './LandingCat';
 import {Link} from 'react-router-dom';
-import NavBar from './NavBar';
+
 
 function Landing ()  {
   return (
     <>
-     <NavBar />
         <div className='discover-container'>
             <div className='big-title'>
               <h4>Start exploring now!</h4>
@@ -19,7 +18,7 @@ function Landing ()  {
               <Link to='/shop' className='srt-shp-btn'>Start Shopping</Link>
             </div>
             </div>
-      <LandingCat />
+      {/* <LandingCat /> */}
     </>
   )
 }

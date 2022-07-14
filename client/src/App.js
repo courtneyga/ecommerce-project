@@ -18,30 +18,62 @@ import NavBar from './components/NavBar';
 function App () {
 
   const [user, setUser] = useState(null);
+  const [username, setUserName] =useState('');
+  const [password, setPassword] = useState('');
   const [products, setProducts] = useState([]);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [category, setCategory] = useState("all")
 
-  useEffect(() => {
-    fetch("/me", {
-      method: "GET",
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("/login", {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify({ username, password }),
     })
-      .then((r) => r.json())
-      .then((data) => {
-        if (data.id) {
-          setUser(data);
-        }
-      });
+      .then((r) => (r.json())
+      .then((user) => setUser(user))
+    );
+  }
+
+  useEffect(() => {
+    fetch("/me").then((response) => {
+      if (response.ok) {
+        response.json().then((user) => setUser(user));
+      }
+    });
   }, []);
+
+  // useEffect(() => {
+  //   fetch("/me", {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then((r) => r.json())
+  //     .then((data) => {
+  //       if (data.id) {
+  //         setUser(data);
+  //       }
+  //     });
+  // }, []);
 
   useEffect(() => {
     fetch('/products')
       .then((r) => r.json()) 
       .then((r) => setProducts(r)) 
   }, [])
+
+  // function handleLogin(user) {
+  //   setUser(user);
+  // }
+
+  function handleLogout() {
+    setUser(null);
+  }
 
   // Add item to cart
   // function handleAddCartItem(newCartItem){
@@ -67,6 +99,7 @@ function App () {
     <>
       <div className='big-container'>
           <Router>
+            <NavBar user={user} onLogout={handleLogout}/>
             <Switch>
               <Route path="/landing">
                 <Landing />
@@ -86,7 +119,13 @@ function App () {
                 <ProductCard  />
               </Route>  */}
               <Route path="/login">
-                <Login />
+                <Login 
+                  user={user}
+                  setUser={setUser}
+                  setPassword={setPassword}
+                  setUserName={setUserName}
+                  handleSubmit={handleSubmit}
+                />
               </Route> 
               <Route path="/cart">
                 <Cart 
